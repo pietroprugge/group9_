@@ -15,7 +15,7 @@ params.limb_dark = "quadratic"
 params.u = [0.693, 0.110]             # coefficienti limb dark
 
 #vettore temp e curve lux
-t = np.linspace(-0.08, 0.08, 100)
+t = np.linspace(-0.08, 0.08, 1000)
 
 m = batman.TransitModel(params, t)
 flux = m.light_curve(params)
