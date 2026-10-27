@@ -1,6 +1,6 @@
 import argparse
 from datetime import datetime, timezone
-
+from daneel.detection import Transit
 from daneel.detection import TransitModel
 from daneel.parameters import Parameters
 
@@ -32,7 +32,7 @@ def main():
     input_pars = Parameters(args.input_file).params
 
     if args.transit:
-        transit = TransitModel(input_pars['transit'])
+        transit = Transit(input_pars['transit'])
         transit.plot_light_curve(args.output)
     elif args.detect:
         parser.error("detection is not implemented yet; use --transit")
