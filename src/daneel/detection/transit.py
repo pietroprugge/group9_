@@ -39,8 +39,8 @@ class Transit:
         # Time array for model evaluation
         self.t = np.linspace(-0.08, 0.08, 1000)
         
-        # Initialize batman model
-        self.model = batman.TransitModel(self.params, self.t)
+        # Initialize batman model, considering also an error of 0.5
+        self.model = batman.TransitModel(self.params, self.t, max_err = 0.5)
 
     def compute_light_curve(self):
         """
@@ -90,3 +90,18 @@ class Transit:
         """
         self.compute_light_curve()
         self.plot_light_curve(output_file)
+
+    def error (self):
+        """
+        computing  the truncation error in case we are using  a “square-root”, “logarithmic”, “exponential”, “nonlinear” or “custom” 
+        limb darkening model 
+
+        this happens because it's only valid for methods that use a numerical integration
+        then once it's computed through the batman model we can plot the final result
+
+        """
+        plt.figure()
+        if (self.params.limb_dark == 'quadratic' or self.params.limb_dark == 'uniform' or self.params.limb_dark == 'linear'):
+            print("no error for a",self.params.limb_dark,"limb darkening model")
+        else:
+            err = self.model.calc_err(plot = True)
