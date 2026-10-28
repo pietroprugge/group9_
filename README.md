@@ -1,10 +1,12 @@
 # Daneel — Computational Astrophysics 2026–27
 
 A teaching package for modelling exoplanet transits and building detection
-pipelines. The repository contains the course example code, a runnable CLI,
-and Sphinx documentation.
+pipelines. 
 
-Documentation: <https://tiziano1590.github.io/comp_astro_26/>.
+Original documentation: <https://tiziano1590.github.io/comp_astro_26/>.
+
+This repository contains the course example code, a runnable CLI,
+and Sphinx documentation.
 
 ## Installation
 
@@ -15,8 +17,8 @@ Documentation: <https://tiziano1590.github.io/comp_astro_26/>.
 ### Install from source
 
 ```bash
-git clone https://github.com/tiziano1590/comp_astro_26.git
-cd comp_astro_26
+git clone https://github.com/pietroprugge/group9_.git
+cd group9_
 pip install .
 ```
 
@@ -31,7 +33,7 @@ pip install -e '.[dev,docs]'
 After installation, you can run daneel from the command line:
 
 ```bash
-daneel -i <input_file> --transit [--output lightcurve.png]
+daneel -i <input_file> --transit [--output planet.png]
 ```
 
 ### Command-line options
@@ -45,8 +47,8 @@ daneel -i <input_file> --transit [--output lightcurve.png]
 ### Examples
 
 ```bash
-# Run exoplanet detection
-daneel -i examples/params.yaml --transit --output lightcurve.png
+# Run exoplanet detection and create a transit light curve
+daneel -i examples/params.yaml --transit --output planet.png
 
 # Run atmospheric characterization
 daneel -i examples/params.yaml --detect
@@ -74,6 +76,11 @@ Build the documentation with `make -C docs html`.
 
 This project is licensed under the GNU General Public License v3.0.
 
-## Author
+## Authors
 
-Tiziano Zingales (tiziano.zingales@unipd.it)
+Tiziano Zingales (tiziano.zingales@unipd.it) (Professor of the course)
+
+Pietro Ruggeri (pietro.ruggeri@studenti.unipd.it)
+Matteo Oberti (matteo.oberti@studenti.unipd.it)
+Stefano Bisignani (stefano.bisignani@studenti.unipd.it)
+Nunzio Viola (nunzio.viola@studenti.unipd.it)
